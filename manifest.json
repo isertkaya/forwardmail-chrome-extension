@@ -1,0 +1,19 @@
+
+{
+    "manifest_version": 3,
+    "name": "ForwardEmail Manager",
+    "version": "1.0.0",
+    "description": "Manage your ForwardEmail aliases and domains directly from Chrome.",
+    "permissions": ["storage", "activeTab", "tabs", "clipboardWrite"],
+    "host_permissions": ["https://api.forwardemail.net/*"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "ForwardEmail Manager",
+        "default_icon": {
+            "128": "forwardemail_icon_128.png"
+        }
+    },
+    "icons": {
+        "128": "forwardemail_icon_128.png"
+    }
+}

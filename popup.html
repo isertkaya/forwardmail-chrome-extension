@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>ForwardEmail Manager</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            min-height: 550px;
+        }
+        .nav-tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+        }
+        .nav-item {
+            flex: 1 1 auto;
+            text-align: center;
+        }
+        .nav-link {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .highlight {
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-2">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <strong>📨 ForwardEmail Manager</strong>
+        <input type="text" class="form-control form-control-sm w-50" id="globalSearch" placeholder="🔍 Suchen...">
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-view="domains" href="#">🌐 Domains</a></li>
+        <li class="nav-item"><a class="nav-link" data-view="aliases" href="#">📧 Aliase</a></li>
+        <li class="nav-item"><a class="nav-link" data-view="createAlias" href="#">➕ Alias erstellen</a></li>
+        <li class="nav-item"><a class="nav-link" data-view="settings" href="#">⚙️ Einstellungen</a></li>
+    </ul>
+    <div class="spinner text-center my-3" id="loadingSpinner" style="display:none;">🔄 Lädt...</div>
+    <div id="view-domains" class="view mt-2">
+        <ul class="list-group" id="domainList"></ul>
+    </div>
+    <div id="view-aliases" class="view mt-2 d-none">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5>📧 Aliase für <span id="currentDomain"></span></h5>
+            <select id="domainSelector" class="form-select form-select-sm w-50"></select>
+        </div>
+        <ul class="list-group" id="aliasList"></ul>
+    </div>
+    <div id="view-createAlias" class="view mt-2 d-none">
+        <h5>➕ Neuen Alias erstellen für <span id="createAliasDomain"></span></h5>
+        <input type="text" class="form-control mb-2" id="aliasName" placeholder="Aliasname (leer = Zufall)">
+        <input type="text" class="form-control mb-2" id="aliasLabel" placeholder="Label (z. B. aktuelle Webseite)">
+        <input type="text" class="form-control mb-2" id="aliasRecipient" placeholder="Empfänger (Standard = Konto-E-Mail)">
+        <button class="btn btn-success w-100" id="createAliasBtn">✅ Alias erstellen</button>
+    </div>
+    <div id="view-settings" class="view mt-2 d-none">
+        <label>🔑 API-Token:</label>
+        <input type="text" class="form-control mb-2" id="newApiToken">
+        <button class="btn btn-primary w-100 mt-2" id="saveNewTokenBtn">💾 Speichern</button>
+    </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
